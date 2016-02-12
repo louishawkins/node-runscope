@@ -1,0 +1,15 @@
+{
+  "name": "runscope",
+  "version": "1.0.0",
+  "description": "Runscope REST API Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Louis Michael Hawkins",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.2.2",
+    "request-promise": "^2.0.0"
+  }
+}
