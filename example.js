@@ -7,7 +7,7 @@ var runscope = require('./index.js')(config.token);
 //assign .bucket to work within a particular bucket
 var dashboardBucket = runscope.bucket(config.bucketKey);
 //assign .tests to work with bucket tests
-var dashboardTests = dashboardBucket.tests();
+var dashboardTests = dashboardBucket.tests;
 
 //create a test in a bucket
 dashboardTests.create({
@@ -17,8 +17,7 @@ dashboardTests.create({
     //returns a new test object which has test methods
     // Now we can add steps
     // steps can be added in a chain
-    newTest.steps()
-        .addRequest({
+    newTest.steps.addRequest({
             method: 'get',
             url: 'http://www.google.com',
             assert: 'status === 200'
@@ -30,7 +29,7 @@ dashboardTests.create({
             assert: 'status === 200'
         }).then(function () {
             console.log('added all the requests!');
-            newTest.schedules().create({
+            newTest.schedules.create({
                 environment_id: newTest.data.default_environment_id,
                 interval: '1h',
                 note: 'A schedule created through api'
