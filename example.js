@@ -1,22 +1,13 @@
 var config = {
     token: 'cc78fcb4-c076-4b1b-a3f5-fded8d71d234',
     bucketKey: 'nwfqdpse77r5'
-}
+};
 
 var runscope = require('./index.js')(config.token);
 //assign .bucket to work within a particular bucket
 var dashboardBucket = runscope.bucket(config.bucketKey);
 //assign .tests to work with bucket tests
 var dashboardTests = dashboardBucket.tests();
-
-function listTests () {
-    //library is promise based
-    dasboardTests.list().then(function (tests) {
-        console.log(tests);
-    }).catch(function (err) {
-        console.log(err);
-    })
-}
 
 //create a test in a bucket
 dashboardTests.create({
@@ -46,6 +37,7 @@ dashboardTests.create({
             }).then(function () {
                 newTest.trigger().then(allDone);
             });
+        })
 }).catch(function (err) {
     console.log(err);
 });
