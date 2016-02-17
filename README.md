@@ -157,7 +157,12 @@ The `Tests` object contains four resources:
   myTest.steps.addRequest(opts);
   
   //chain as many as you want
-  myTest.steps.addRequest(STEP_ONE).addRequest(STEP_TWO).add(STEP_n).catch();
+  myTest.steps
+    .addRequest(STEP_ONE)
+    .addRequest(STEP_TWO)
+    .add(STEP_n)
+    .then(doStuff)
+    .catch();
   
   //other step types
   myTest.addPause({ duration: 2 /* seconds */});
