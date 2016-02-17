@@ -15,7 +15,7 @@ See https://github.com/louishawkins/node-runscope/blob/master/example.js.
 
 #### List Buckets
 ```javascript
-  runscope.bucketList();
+  runscope.bucketList();_
 ```
 #### Create Bucket
 ```javascript
