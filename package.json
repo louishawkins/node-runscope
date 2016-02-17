@@ -1,6 +1,6 @@
 {
   "name": "runscope",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "Runscope REST API Library",
   "main": "index.js",
   "scripts": {
@@ -12,5 +12,17 @@
     "bluebird": "^3.2.2",
     "request-promise": "^2.0.0",
     "underscore": "^1.8.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louishawkins/node-runscope.git"
+  },
+  "keywords": [
+    "Runscope"
+  ],
+  "bugs": {
+    "url": "https://github.com/louishawkins/node-runscope/issues"
+  },
+  "homepage": "https://github.com/louishawkins/node-runscope#readme"
 }
