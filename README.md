@@ -204,7 +204,7 @@ The `Tests` object contains four resources:
 
 #### Show Schedule Details
 ```javascript
-  myTest.schedules.dtails(SCHEDULE_ID);
+  myTest.schedules.detils(SCHEDULE_ID);
 ```
 
 #### Delete (stop) a Schedule
