@@ -111,6 +111,19 @@ A Message for the purposes of this API represents an HTTP request and response p
 #### Trigger Test
 ```javascript
   myTest.trigger();
+  
+  // results are usually available 
+  // after 2 seconds
+  myTest
+    .trigger()
+    .wait(2000)
+    .then(myTest.results.latest())
+    .then(function (results) {
+        console.log(results);
+    })
+    .catch(function (err) {
+      throw new Error(err);
+    }
 ```
 
 #### Update Test
@@ -216,9 +229,9 @@ The `Tests` object contains four resources:
 ```javascript
   myTest.environments.list();
   myTest.environments.create(opts);
-  myTest.envoronments.modify(opts);
+  myTest.environments.modify(opts);
   myTest.environments.detail(ENV_ID);
-  myTest.enviroments.delete(ENV_ID);
+  myTest.environments.delete(ENV_ID);
 ```
 
 -------------------
