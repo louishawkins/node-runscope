@@ -15,7 +15,7 @@ See https://github.com/louishawkins/node-runscope/blob/master/example.js.
 
 #### List Buckets
 ```javascript
-  runscope.bucketList();
+  runscope.bucketList();_
 ```
 #### Create Bucket
 ```javascript
@@ -157,7 +157,12 @@ The `Tests` object contains four resources:
   myTest.steps.addRequest(opts);
   
   //chain as many as you want
-  myTest.steps.addRequest(STEP_ONE).addRequest(STEP_TWO).add(STEP_n).catch();
+  myTest.steps
+    .addRequest(STEP_ONE)
+    .addRequest(STEP_TWO)
+    .add(STEP_n)
+    .then(doStuff)
+    .catch();
   
   //other step types
   myTest.addPause({ duration: 2 /* seconds */});
@@ -199,7 +204,7 @@ The `Tests` object contains four resources:
 
 #### Show Schedule Details
 ```javascript
-  myTest.schedules.dtails(SCHEDULE_ID);
+  myTest.schedules.detils(SCHEDULE_ID);
 ```
 
 #### Delete (stop) a Schedule
