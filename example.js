@@ -1,13 +1,14 @@
+
 var config = {
-    token: '',
-    bucketKey: ''
-};
+    token: 'cc78fcb4-c076-4b1b-a3f5-fded8d71d234',
+    bucketKey: 'nwfqdpse77r5'
+}
 
 var runscope = require('./index.js')(config.token);
 //assign .bucket to work within a particular bucket
 var myBucket = runscope.bucket(config.bucketKey);
 //assign .tests to work with bucket tests
-var myBucketTests = dashboardBucket.tests;
+var myBucketTests = myBucket.tests;
 
 //create a test in a bucket
 myBucketTests.create({
@@ -38,12 +39,15 @@ myBucketTests.create({
                 interval: '1h',
                 note: 'A schedule created through api'
             })
-            .then(newTest.trigger())
-            .wait(2000)
-            .then(newTest.results.latest())
+            .then(function () {
+                return newTest.trigger();
+            })
+            .delay(2000)
+            .then(function () {
+                return newTest.results.latest();
+            })
             .then(function (results) {
                 console.log(results);
-                process.exit(0);
             }).catch(function (err) {
                 throw new Error(err);
             });
