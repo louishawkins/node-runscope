@@ -4,7 +4,10 @@ A promise-based library for interacting with the Runscope.
 
 Designed to conform to the structure of the Runscope REST API.
 
-See https://github.com/louishawkins/node-runscope/blob/master/example.js.
+Suggested Usage: https://github.com/louishawkins/node-runscope/blob/master/example.js.
+
+See Runscope API documentation for specific parameters: 
+https://www.runscope.com/docs/api
 
 ### Get Started
 ```javascript
@@ -15,7 +18,7 @@ See https://github.com/louishawkins/node-runscope/blob/master/example.js.
 
 #### List Buckets
 ```javascript
-  runscope.bucketList();_
+  runscope.bucketList();
 ```
 #### Create Bucket
 ```javascript
@@ -116,8 +119,10 @@ A Message for the purposes of this API represents an HTTP request and response p
   // after 2 seconds
   myTest
     .trigger()
-    .wait(2000)
-    .then(myTest.results.latest())
+    .delay(2000)
+    .then(function () {
+        return myTest.results.latest();
+    })
     .then(function (results) {
         console.log(results);
     })
@@ -244,4 +249,4 @@ The `Tests` object contains four resources:
 
 Bluebird: http://bluebirdjs.com/docs/api-reference.html
 
-Runscope API: https://www.runscope.com/docs/api
+
