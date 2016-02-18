@@ -15,7 +15,7 @@ See https://github.com/louishawkins/node-runscope/blob/master/example.js.
 
 #### List Buckets
 ```javascript
-  runscope.bucketList();_
+  runscope.bucketList();
 ```
 #### Create Bucket
 ```javascript
@@ -116,8 +116,10 @@ A Message for the purposes of this API represents an HTTP request and response p
   // after 2 seconds
   myTest
     .trigger()
-    .wait(2000)
-    .then(myTest.results.latest())
+    .delay(2000)
+    .then(function () {
+        return myTest.results.latest();
+    })
     .then(function (results) {
         console.log(results);
     })
