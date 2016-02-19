@@ -1,6 +1,6 @@
 {
   "name": "runscope",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Runscope REST API Library",
   "main": "index.js",
   "scripts": {
