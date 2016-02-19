@@ -162,6 +162,8 @@ The `Tests` object contains four resources:
   myTest.steps.addRequest(opts);
   
   //chain as many as you want
+  // Note: currently step order is not guaranteed.
+  // See: https://github.com/louishawkins/node-runscope/issues/1
   myTest.steps
     .addRequest(STEP_ONE)
     .addRequest(STEP_TWO)
