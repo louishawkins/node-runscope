@@ -1,7 +1,7 @@
 
 var config = {
-    token: 'cc78fcb4-c076-4b1b-a3f5-fded8d71d234',
-    bucketKey: 'nwfqdpse77r5'
+    token: '',
+    bucketKey: ''
 }
 
 var runscope = require('./index.js')(config.token);
@@ -23,14 +23,15 @@ myBucketTests.create({
             method: 'get',
             url: 'http://www.google.com',
             assert: 'status === 200'
-        })
-        .addPause({
-            duration: 2
-        })
-        .addRequest({
-            method: 'get',
-            url: 'http://www.yahoo.com',
-            assert: 'status === 200'
+        }).then(function () {
+            // this guarantees that pause always ends up after the first request
+            return newTest.addPause({ duration: 2 });
+        }).then(function () {
+             return newTest.addRequest({
+                method: 'get',
+                url: 'http://www.yahoo.com',
+                assert: 'status === 200'
+             })
         })
         .then(function () {
             console.log('added all the requests!');
