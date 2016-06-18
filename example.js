@@ -2,7 +2,7 @@
 var config = {
     token: '',
     bucketKey: ''
-}
+};
 
 var runscope = require('./index.js')(config.token);
 //assign .bucket to work within a particular bucket
